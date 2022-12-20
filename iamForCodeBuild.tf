@@ -32,7 +32,7 @@ resource "aws_iam_policy" "codebuild-policy" {
     name = "codebuild-policy"
     path = "/"
     description = "Codebuild policy"
-    policy = data.aws_iam_policy_document.tf-cicd-build-policies.json
+    policy = data.aws_iam_policy_document.codebuild-policies.json
 }
 
 resource "aws_iam_role_policy_attachment" "codebuild-attachmenta" {
