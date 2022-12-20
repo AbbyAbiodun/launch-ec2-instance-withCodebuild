@@ -76,7 +76,7 @@ resource "aws_codebuild_project" "build-job" {
     type            = "GITHUB"
     location        = "https://github.com/AbbyAbiodun/launch-ec2-instance-withCodebuild"
     git_clone_depth = 1
-    buildspec       = file("buildspec/buildspec.yml")
+   
 
    
   }
