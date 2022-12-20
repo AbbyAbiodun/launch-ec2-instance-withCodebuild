@@ -54,3 +54,33 @@ resource "aws_codebuild_project" "apply" {
   source_version = "master"
 
 }
+
+
+resource "aws_codebuild_project" "build-job" {
+  name          = "codebuild-buildjob"
+  description   = "Apply stage for terraform"
+  service_role  = aws_iam_role.codebuild-role.arn
+
+  artifacts {
+    type = "NO_ARTIFACTS"
+  }
+
+  environment {
+    compute_type                = "BUILD_GENERAL1_SMALL"
+    image                       = "hashicorp/terraform:0.14.3"
+    type                        = "LINUX_CONTAINER"
+    image_pull_credentials_type = "SERVICE_ROLE"
+    
+ }
+ source {
+    type            = "GITHUB"
+    location        = "https://github.com/AbbyAbiodun/launch-ec2-instance-withCodebuild"
+    git_clone_depth = 1
+    buildspec       = file("buildspec/buildspec.yml")
+
+   
+  }
+
+  source_version = "master"
+
+}
