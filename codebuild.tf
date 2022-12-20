@@ -4,7 +4,7 @@ resource "aws_codebuild_project" "plan" {
   service_role  = aws_iam_role.codebuild-role.arn
 
   artifacts {
-    type = "NO-ARTIFACTS"
+    type = "NO_ARTIFACTS"
   }
 
   environment {
@@ -33,7 +33,7 @@ resource "aws_codebuild_project" "apply" {
   service_role  = aws_iam_role.codebuild-role.arn
 
   artifacts {
-    type = "NO-ARTIFACTS"
+    type = "NO_ARTIFACTS"
   }
 
   environment {
